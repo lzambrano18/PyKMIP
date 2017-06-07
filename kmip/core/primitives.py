@@ -298,6 +298,7 @@ class LongInteger(Base):
                 Optional, defaults to Tags.DEFAULT.
         """
         super(LongInteger, self).__init__(tag, type=enums.Types.LONG_INTEGER)
+        print (value)
         self.value = value
         self.length = LongInteger.LENGTH
 
@@ -965,6 +966,8 @@ class DateTime(LongInteger):
         """
         if value is None:
             value = int(time.time())
+        else:
+            value = int(value)
         super(DateTime, self).__init__(value, tag)
         self.type = enums.Types.DATE_TIME
 

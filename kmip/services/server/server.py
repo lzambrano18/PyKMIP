@@ -281,6 +281,7 @@ class KmipServer(object):
         as connections are handled. Set up signal handling to shutdown
         connection service as needed.
         """
+        self.start()
         self._socket.listen(5)
 
         def _signal_handler(signal_number, stack_frame):
@@ -299,6 +300,9 @@ class KmipServer(object):
         self._logger.info("Starting connection service...")
 
         while self._is_serving:
+            connection, address = self._socket.accept()
+            print (connection)
+            print (address)
             try:
                 connection, address = self._socket.accept()
             except socket.error as e:
@@ -486,7 +490,6 @@ def main(args=None):
     # Build argument parser and parser command-line arguments.
     parser = build_argument_parser()
     opts, args = parser.parse_args(sys.argv[1:])
-
     kwargs = {}
     if opts.hostname:
         kwargs['hostname'] = opts.hostname

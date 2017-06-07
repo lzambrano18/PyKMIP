@@ -171,6 +171,7 @@ class KmipServerConfig(object):
             )
 
     def _set_certificate_path(self, value):
+        print (value)
         if value is None:
             self.settings['certificate_path'] = None
         elif isinstance(value, six.string_types):

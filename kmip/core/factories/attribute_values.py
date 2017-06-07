@@ -100,6 +100,8 @@ class AttributeValueFactory(object):
             return self._create_contact_information(value)
         elif name is enums.AttributeType.LAST_CHANGE_DATE:
             return primitives.DateTime(value, enums.Tags.LAST_CHANGE_DATE)
+        elif name is enums.AttributeType.ORIGINAL_CREATION_DATE:
+            return primitives.DateTime(value, enums.Tags.ORIGINAL_CREATION_DATE)
         elif name is enums.AttributeType.CUSTOM_ATTRIBUTE:
             return attributes.CustomAttribute(value)
         else:

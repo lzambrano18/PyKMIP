@@ -33,14 +33,14 @@ class ConfigHelper(object):
     DEFAULT_HOST = "127.0.0.1"
     DEFAULT_PORT = 5696
     DEFAULT_CERTFILE = os.path.normpath(os.path.join(
-        FILE_PATH, '../demos/certs/server.crt'))
+        FILE_PATH, '/etc/ssl/newcerts/02.pem'))
     DEFAULT_KEYFILE = os.path.normpath(os.path.join(
-        FILE_PATH, '../demos/certs/server.key'))
+        FILE_PATH, '/etc/ssl/client.key'))
     DEFAULT_CA_CERTS = os.path.normpath(os.path.join(
-        FILE_PATH, '../demos/certs/server.crt'))
+        FILE_PATH, '/etc/ssl/certs/cacert.pem'))
     DEFAULT_SSL_VERSION = 'PROTOCOL_SSLv23'
-    DEFAULT_USERNAME = None
-    DEFAULT_PASSWORD = None
+    DEFAULT_USERNAME = 'leonel'
+    DEFAULT_PASSWORD = 'leonel'
 
     # Timeout measured in seconds
     DEFAULT_TIMEOUT = 30
@@ -49,7 +49,7 @@ class ConfigHelper(object):
         self.logger = logging.getLogger(__name__)
 
         self.conf = SafeConfigParser()
-        if self.conf.read(CONFIG_FILE):
+        if self.conf.read(CONFIG_FILE[1]):
             self.logger.debug("Using config file at {0}".format(CONFIG_FILE))
         else:
             self.logger.warning(

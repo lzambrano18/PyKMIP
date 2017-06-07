@@ -36,6 +36,7 @@ class AttestationType(enum.Enum):
 
 
 class AttributeType(enum.Enum):
+    X_ID                             = 'x-ID'
     UNIQUE_IDENTIFIER                = 'Unique Identifier'
     NAME                             = 'Name'
     OBJECT_TYPE                      = 'Object Type'

@@ -10,3 +10,4 @@ testscenarios
 testrepository
 sphinx
 bandit
+tox
